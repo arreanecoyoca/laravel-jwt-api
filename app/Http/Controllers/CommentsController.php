@@ -39,12 +39,6 @@ class CommentsController extends Controller
             return response()->json($validator->errors(), 400);
         }
 
-        // check if parent comment exist
-        $parentComment = Comment::where('id', request('parent_id'))->where('is_active', true)->count();
-        if($parentComment===0){
-            return response()->json(['parent comment not found'], 400);
-        }
-
         Comment::create([
             'article_id' => $article->id,
             'user_id' => user()->id,

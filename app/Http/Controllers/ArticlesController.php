@@ -21,7 +21,7 @@ class ArticlesController extends Controller
      */
     public function index()
     {
-        return user()->articles()->latest()->take(5)->get();
+        return user()->articles()->latest()->take(20)->get();
     }
 
     /**
