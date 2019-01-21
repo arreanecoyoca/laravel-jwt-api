@@ -61,7 +61,8 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'jwt.verify' => \App\Http\Middleware\JwtMiddleware::class,
-        'user.auth' => \App\Http\Middleware\UserIsAuthorizedMiddleware::class,
+        'article.auth' => \App\Http\Middleware\UserIsAuthorizedMiddleware::class,
+        'comment.auth' => \App\Http\Middleware\UserIsAuthorizedToCommentMiddleware::class,
     ];
 
     /**

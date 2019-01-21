@@ -11,7 +11,7 @@ class ArticlesController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('user.auth', ['only' => ['update', 'destroy']]);
+        $this->middleware('article.auth', ['only' => ['update', 'destroy']]);
     }
 
     /**
@@ -75,8 +75,7 @@ class ArticlesController extends Controller
             return response()->json($validator->errors(), 400);
         }
 
-        user()->articles()->update($request->only('title', 'body'));
-
+        $article->update($request->only('title', 'body'));
         return response()->json('updated_successfully', 200);
     }
 
